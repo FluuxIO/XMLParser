@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		02A4A777216A875C00E4B23C /* XMLParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A4A76D216A875B00E4B23C /* XMLParser.framework */; };
 		02A4A77C216A875C00E4B23C /* XMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4A77B216A875C00E4B23C /* XMLParserTests.swift */; };
-		02A4A77E216A875C00E4B23C /* XMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 02A4A770216A875B00E4B23C /* XMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02A4A789216A878700E4B23C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A4A788216A878700E4B23C /* libxml2.2.tbd */; };
+		02A4A78B216A880F00E4B23C /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4A78A216A880F00E4B23C /* Codable.swift */; };
+		02A4A78D216A882600E4B23C /* SAX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4A78C216A882600E4B23C /* SAX.swift */; };
+		02A4A78F216A883600E4B23C /* XMLDOM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4A78E216A883600E4B23C /* XMLDOM.swift */; };
+		02A4A791216A884300E4B23C /* XMLStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4A790216A884300E4B23C /* XMLStream.swift */; };
+		02A4A793216A885000E4B23C /* XPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4A792216A885000E4B23C /* XPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +29,16 @@
 
 /* Begin PBXFileReference section */
 		02A4A76D216A875B00E4B23C /* XMLParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XMLParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		02A4A770216A875B00E4B23C /* XMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		02A4A771216A875B00E4B23C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02A4A776216A875C00E4B23C /* XMLParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XMLParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A4A77B216A875C00E4B23C /* XMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserTests.swift; sourceTree = "<group>"; };
 		02A4A77D216A875C00E4B23C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02A4A788216A878700E4B23C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		02A4A78A216A880F00E4B23C /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		02A4A78C216A882600E4B23C /* SAX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAX.swift; sourceTree = "<group>"; };
+		02A4A78E216A883600E4B23C /* XMLDOM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLDOM.swift; sourceTree = "<group>"; };
+		02A4A790216A884300E4B23C /* XMLStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLStream.swift; sourceTree = "<group>"; };
+		02A4A792216A885000E4B23C /* XPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A4A789216A878700E4B23C /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +67,7 @@
 				02A4A76F216A875B00E4B23C /* XMLParser */,
 				02A4A77A216A875C00E4B23C /* XMLParserTests */,
 				02A4A76E216A875B00E4B23C /* Products */,
+				02A4A787216A878600E4B23C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +83,11 @@
 		02A4A76F216A875B00E4B23C /* XMLParser */ = {
 			isa = PBXGroup;
 			children = (
-				02A4A770216A875B00E4B23C /* XMLParser.h */,
+				02A4A78A216A880F00E4B23C /* Codable.swift */,
+				02A4A78C216A882600E4B23C /* SAX.swift */,
+				02A4A78E216A883600E4B23C /* XMLDOM.swift */,
+				02A4A790216A884300E4B23C /* XMLStream.swift */,
+				02A4A792216A885000E4B23C /* XPath.swift */,
 				02A4A771216A875B00E4B23C /* Info.plist */,
 			);
 			path = XMLParser;
@@ -86,6 +102,14 @@
 			path = XMLParserTests;
 			sourceTree = "<group>";
 		};
+		02A4A787216A878600E4B23C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02A4A788216A878700E4B23C /* libxml2.2.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +117,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02A4A77E216A875C00E4B23C /* XMLParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +171,7 @@
 				TargetAttributes = {
 					02A4A76C216A875B00E4B23C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					02A4A775216A875C00E4B23C = {
 						CreatedOnToolsVersion = 10.0;
@@ -194,6 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A4A78D216A882600E4B23C /* SAX.swift in Sources */,
+				02A4A78F216A883600E4B23C /* XMLDOM.swift in Sources */,
+				02A4A78B216A880F00E4B23C /* Codable.swift in Sources */,
+				02A4A791216A884300E4B23C /* XMLStream.swift in Sources */,
+				02A4A793216A885000E4B23C /* XPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +370,7 @@
 		02A4A782216A875C00E4B23C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -348,6 +378,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = XMLParser/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.process-one.XMLParser";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +398,7 @@
 		02A4A783216A875C00E4B23C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -373,6 +406,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = XMLParser/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,6 +425,7 @@
 		02A4A785216A875C00E4B23C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8L55BDM864;
 				INFOPLIST_FILE = XMLParserTests/Info.plist;
@@ -409,6 +444,7 @@
 		02A4A786216A875C00E4B23C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8L55BDM864;
 				INFOPLIST_FILE = XMLParserTests/Info.plist;
