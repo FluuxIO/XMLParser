@@ -14,7 +14,7 @@ public struct SAXError: Error {
 	}
 }
 
-public protocol SAXDelegate {
+public protocol SAXDelegate: AnyObject {
 	func startDocument()
 	func endDocument()
 	func processingInstruction(target: String, data: String)
@@ -77,7 +77,7 @@ public extension SAXDelegate {
 
 public class SAXParser {
 	var handler = xmlSAXHandler()
-	var delegate: SAXDelegate
+	weak var delegate: SAXDelegate?
 	var parserCtxt: xmlParserCtxtPtr?
 	public init(delegate d: SAXDelegate) {
 		delegate = d
@@ -161,14 +161,14 @@ public class SAXParser {
 		handler.endElement = nil
 		handler.startElementNs = {
 			a, b, c, d, e, f, g, h, i in
-			fromContext(SAXParser.self, a)?.delegate.startElementNs(localName: String(b, default: ""),
+			fromContext(SAXParser.self, a)?.delegate?.startElementNs(localName: String(b, default: ""),
 								  prefix: String(c),
 								  uri: String(d),
 								  namespaces: SAXParser.ptr2AryNamespaces(f, count: Int(e)),
 								  attributes: SAXParser.ptr2AryAttributes(i, count: Int(g)))
 		}
 		handler.endElementNs = {
-			fromContext(SAXParser.self, $0)?.delegate.endElementNs(
+			fromContext(SAXParser.self, $0)?.delegate?.endElementNs(
 				localName: String($1) ?? "no name",
 				prefix: String($2),
 				uri: String($3))
@@ -183,14 +183,14 @@ public class SAXParser {
 		handler.getEntity = { xmlGetPredefinedEntity($1) }
 		handler.getParameterEntity = { _, _ in return nil }
 		handler.entityDecl = {
-			fromContext(SAXParser.self, $0)?.delegate.entityDecl(name: String($1, default: ""),
+			fromContext(SAXParser.self, $0)?.delegate?.entityDecl(name: String($1, default: ""),
 														type: Int($2),
 														pubicId: String($3, default: ""),
 														systemId: String($4, default: ""),
 														content: String($5, default: ""))
 		}
 		handler.attributeDecl = {
-			fromContext(SAXParser.self, $0)?.delegate.attributeDecl(elem: String($1, default: ""),
+			fromContext(SAXParser.self, $0)?.delegate?.attributeDecl(elem: String($1, default: ""),
 														   fullName: String($2, default: ""),
 														   type: Int($3),
 														   def: Int($4),
@@ -198,26 +198,26 @@ public class SAXParser {
 														   tree: $6)
 		}
 		handler.elementDecl = {
-			fromContext(SAXParser.self, $0)?.delegate.elementDecl(name: String($1, default: ""), type: Int($2), content: $3)
+			fromContext(SAXParser.self, $0)?.delegate?.elementDecl(name: String($1, default: ""), type: Int($2), content: $3)
 		}
 		handler.notationDecl = {
-			fromContext(SAXParser.self, $0)?.delegate.notationDecl(name: String($1, default: ""), pubicId: String($2, default: ""), systemId: String($3, default: ""))
+			fromContext(SAXParser.self, $0)?.delegate?.notationDecl(name: String($1, default: ""), pubicId: String($2, default: ""), systemId: String($3, default: ""))
 		}
 		handler.unparsedEntityDecl = {
-			fromContext(SAXParser.self, $0)?.delegate.unparsedEntityDecl(name: String($1, default: ""),
+			fromContext(SAXParser.self, $0)?.delegate?.unparsedEntityDecl(name: String($1, default: ""),
 														pubicId: String($2, default: ""),
 														systemId: String($3, default: ""),
 														notationName: String($4, default: ""))
 		}
 		handler.setDocumentLocator = { _, _ in }
-		handler.startDocument = { fromContext(SAXParser.self, $0)?.delegate.startDocument() }
-		handler.endDocument = {	fromContext(SAXParser.self, $0)?.delegate.endDocument() }
-		handler.reference = { fromContext(SAXParser.self, $0)?.delegate.reference(name: String($1, default: "")) }
-		handler.characters = { fromContext(SAXParser.self, $0)?.delegate.characters(String($1, count: Int($2), default: "")) }
-		handler.cdataBlock = { fromContext(SAXParser.self, $0)?.delegate.cdataBlock(String($1, count: Int($2), default: "")) }
-		handler.ignorableWhitespace = { fromContext(SAXParser.self, $0)?.delegate.ignorableWhitespace(String($1, default: "")) ; _ = $2 };
-		handler.processingInstruction = { fromContext(SAXParser.self, $0)?.delegate.processingInstruction(target: String($1, default: ""), data: String($2, default: "")) }
-		handler.comment = { fromContext(SAXParser.self, $0)?.delegate.comment(String($1, default: "")) }
+		handler.startDocument = { fromContext(SAXParser.self, $0)?.delegate?.startDocument() }
+		handler.endDocument = {	fromContext(SAXParser.self, $0)?.delegate?.endDocument() }
+		handler.reference = { fromContext(SAXParser.self, $0)?.delegate?.reference(name: String($1, default: "")) }
+		handler.characters = { fromContext(SAXParser.self, $0)?.delegate?.characters(String($1, count: Int($2), default: "")) }
+		handler.cdataBlock = { fromContext(SAXParser.self, $0)?.delegate?.cdataBlock(String($1, count: Int($2), default: "")) }
+		handler.ignorableWhitespace = { fromContext(SAXParser.self, $0)?.delegate?.ignorableWhitespace(String($1, default: "")) ; _ = $2 };
+		handler.processingInstruction = { fromContext(SAXParser.self, $0)?.delegate?.processingInstruction(target: String($1, default: ""), data: String($2, default: "")) }
+		handler.comment = { fromContext(SAXParser.self, $0)?.delegate?.comment(String($1, default: "")) }
 		handler.warning = nil//xmlParserWarning;
 		handler.error = nil//xmlParserError;
 		handler.fatalError = nil//xmlParserError;
